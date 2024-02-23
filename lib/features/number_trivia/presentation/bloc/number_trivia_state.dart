@@ -9,3 +9,6 @@ abstract class NumberTriviaState extends Equatable {
 
 class NumberTriviaInitial extends NumberTriviaState {}
 
+class NumberTriviaLoaded extends NumberTriviaState{}
+
+class NumberTriviaError extends NumberTriviaState{}
