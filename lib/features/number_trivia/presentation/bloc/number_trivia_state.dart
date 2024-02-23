@@ -9,6 +9,23 @@ abstract class NumberTriviaState extends Equatable {
 
 class NumberTriviaInitial extends NumberTriviaState {}
 
-class NumberTriviaLoaded extends NumberTriviaState{}
+class NumberTriviaLoading extends NumberTriviaState {}
 
-class NumberTriviaError extends NumberTriviaState{}
+class NumberTriviaLoaded extends NumberTriviaState{
+  final NumberTriviaEntity numberTrivia;
+
+  const NumberTriviaLoaded({required this.numberTrivia});
+
+  @override
+  List<Object> get props => [numberTrivia];
+
+}
+
+class NumberTriviaError extends NumberTriviaState{
+  final String errorMessage;
+
+  const NumberTriviaError({required this.errorMessage});
+
+  @override
+  List<Object> get props => [errorMessage];
+}
