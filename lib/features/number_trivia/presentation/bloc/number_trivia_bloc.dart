@@ -18,8 +18,13 @@ class NumberTriviaBloc extends Bloc<NumberTriviaEvent, NumberTriviaState> {
     required this.getRandomNumberTrivia,
     required this.inputConverter,
   }) : super(NumberTriviaInitial()) {
-    on<NumberTriviaEvent>((event, emit) {
-      // TODO: implement event handler
+    on<GetConcreteNumberTriviaEvent>((event, emit) {
+      final inputResult = inputConverter.stringToUnsignedInteger(event.numberString);
+      inputResult.fold((Failure) {
+        emit(NumberTriviaError(errorMessage: 'errorMessage'));
+      }, (NumberTriviaEntity) {
+        // emit(NumberTriviaLoaded(numberTrivia: event.numberString as));
+      });
     });
   }
 }
